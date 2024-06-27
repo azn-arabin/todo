@@ -1,30 +1,60 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple todo app built using React and Vite. It helps you manage your tasks efficiently.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add, edit, and delete tasks
+- Mark tasks as completed
+- Filter tasks (all, active, completed)
+- Responsive design
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- React
+- Redux Toolkit
+- React Router DOM
+- React Hook Form
+- Tailwind CSS
+- TypeScript
+- Vite
 
-- Configure the top-level `parserOptions` property like this:
+## Installation and Setup
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. **Clone the repository:**
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   ```sh
+   git clone https://github.com/azn-arabin/todo
+   cd todo-app
+   ```
+
+2. **Install dependencies:**
+
+   ```sh
+   npm install
+   ```
+
+3. **Run the development server:**
+
+   ```sh
+   npm run dev
+   ```
+
+   This will start the development server and you can view the app in your browser at `http://localhost:3000`.
+
+4. **Build for production:**
+
+   ```sh
+   npm run build
+   ```
+
+   This will create an optimized production build in the `dist` directory.
+
+5. **Preview the production build:**
+
+   ```sh
+   npm run preview
+   ```
+
+   This will start a local server to preview the production build.
+
