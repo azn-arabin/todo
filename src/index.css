@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --td-primary: #0095ff;
+  --td-background: #ffffff;
+  --td-info: #17a2b8;
+  --td-border: #ced4da;
+  --td-placeholder: #6c757d;
+  --td-secondary: #6c757d;
+  --td-text-primary: #212529; /* Dark gray */
+  --td-text-secondary: #6c757d; /* Medium gray */
+  --td-text-muted: #adb5bd; /* Light gray */
+  --td-success: #28a745;
+  --td-warning: #ffc107;
+  --td-danger: #dc3545;
+  --td-light: #f8f9fa;
+  --td-hover: #e2e6ea;
+  --td-dark: #343a40;
+  --td-muted: #6c757d;
+
+  --title-font: "Montserrat", sans-serif;
+  --body-font: "Roboto", sans-serif;
+
+  --toastify-color-light: var(--td-light);
+  --toastify-color-dark: var(--td-dark);
+  --toastify-color-info: var(--td-info);
+  --toastify-color-success: var(--td-success);
+  --toastify-color-warning: var(--td-warning);
+  --toastify-color-error: var(--td-danger);
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+
+  --toastify-toast-background: var(--td-background);
+
+  --toastify-text-color-light: var(--td-text-primary);
+  --toastify-text-color-dark: var(--td-light);
+
+  --toastify-text-color-info: var(--td-light);
+  --toastify-text-color-success: var(--td-light);
+  --toastify-text-color-warning: var(--td-light);
+  --toastify-text-color-error: var(--td-light);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-sm font-body text-text-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title;
+  }
+
+  .ripple {
+    @apply relative transition-all tracking-normal
+    duration-500 overflow-hidden;
+  }
+
+  .ripple:hover::after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+  }
+
+  .ripple:active::after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+  }
+}
+
+.popup {
+  display: none;
+  z-index: 50;
+}
+
+.open {
+  display: flex;
+}
+
+.bottomToUpAnimation {
+  animation: slideInBottomToUp 0.5s forwards;
+}
+
+@keyframes slideInBottomToUp {
+  from {
+    transform: translateY(100%); /* Start from bottom */
+  }
+  to {
+    transform: translateY(0); /* Move to the original position */
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  cursor: default;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 25;
+  cursor: default;
+}
+
+.modalContent {
+  border-radius: 8px;
+  position: relative;
+  animation: slideIn 0.5s forwards;
+  z-index: 40;
+}
+
+.open {
+  display: flex;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDrawer {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawerContent {
+  right: 0;
+  top: 0;
+  position: fixed;
+  animation: slideInDrawer 0.5s ease-in-out;
+  z-index: 40;
+  min-height: 100%;
+}
+
+/*scrollbar styling*/
+
+::-webkit-scrollbar {
+  width: 10px;
+  z-index: 31;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+  z-index: 31;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 5px;
+  z-index: 31;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* horizontal */
+::-webkit-scrollbar:horizontal {
+  display: none;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #aaa;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: #999;
+}
+
+.showHScrollbar::-webkit-scrollbar:horizontal {
+  display: inline-block;
+}
